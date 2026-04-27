@@ -8,30 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var chosenLandmark: Landmark
+    
     var body: some View {
         VStack {
-           MapView(coordinate: londonBridgeLandmark.locationCoordinates)
+           MapView(coordinate: chosenLandmark.locationCoordinates)
                 .edgesIgnoringSafeArea(.top)
                 .frame(height: UIScreen.main.bounds.height*0.3)
             
-            CircleImage(image: Image(londonBridgeLandmark.imageName))
+            CircleImage(image: Image(chosenLandmark.imageName))
                 .frame(width: UIScreen.main.bounds.width*0.9, height:UIScreen.main.bounds.height*0.3 )
                 .offset(y:UIScreen.main.bounds.height * -0.15)
                 .padding(.bottom,-150)
             
             
             VStack(alignment:.leading){
-             Text(londonBridgeLandmark.name)
+             Text(chosenLandmark.name)
                     .font(.largeTitle)
                     .foregroundColor(.orange)
                 
                 HStack{
-                    Text(londonBridgeLandmark.country)
+                    Text(chosenLandmark.country)
                         .font(.subheadline)
                     
                     Spacer()
                     
-                    Text(londonBridgeLandmark.category)
+                    Text(chosenLandmark.category)
                         .font(.subheadline)
                 }
                 
@@ -44,5 +47,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(chosenLandmark: londonBridgeLandmark)
 }
