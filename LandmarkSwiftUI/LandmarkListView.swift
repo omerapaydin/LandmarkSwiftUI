@@ -12,7 +12,12 @@ struct LandmarkListView: View {
         NavigationView {
             List(landmarkArray) { landmark in
                 NavigationLink(destination: ContentView(chosenLandmark: landmark)) {
+                    Image(landmark.imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50, alignment: .leading)
                     Text(landmark.name)
+
                 }
             }
         }
